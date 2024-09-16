@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Python 버전 설정
-PYTHON_VERSION="3.9"
+PYTHON_VERSION="3.10.0"
 
 # Pipenv 설치 확인 및 설치
 if ! command -v pipenv &> /dev/null
@@ -24,6 +24,6 @@ fi
 PIPENV_VENV_IN_PROJECT=true PIPENV_IGNORE_VIRTUALENVS=1 pipenv install --python "$PYTHON_VERSION"
 
 # pre-commit hook 설치
-pipenv run pre-commit install
+pre-commit install
 
 echo "설치가 완료되었습니다!"
