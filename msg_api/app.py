@@ -20,8 +20,9 @@ def create_app():
 
 def register_namespaces(api: Api) -> None:
     from msg_api.hello.controller.hello import hello_ns
+    from msg_api._example.controller.example import example_ns
 
-    ns_confs = [hello_ns]
+    ns_confs = [hello_ns, example_ns]
     for ns_conf in ns_confs:
         api.add_namespace(ns_conf)
 
