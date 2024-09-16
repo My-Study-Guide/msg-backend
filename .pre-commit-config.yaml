@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1  # 최신 버전
+    hooks:
+      - id: trailing-whitespace  # 공백 제거
+      - id: end-of-file-fixer  # 파일의 끝에 빈 줄 추가
+      - id: check-added-large-files  # 커밋 파일 크기 체크 // 너무 큰 크기의 파일이 커밋되면 성능 이슈 생길 수 있음.
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0  # flake8의 최신 버전
+    hooks:
+      - id: flake8  # PEP 8 스타일 검사
+
+  # 코드 모양 일관적으로 맞춰줌
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+        args: [ "--line-length=79" ]  # PEP 8 표준에 맞춘 라인 길이 설정
+
+  # import 문을 알파벳 순서로 정렬
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1
+    hooks:
+      - id: isort

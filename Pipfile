@@ -10,8 +10,10 @@ mysql-connector-python = "~=9.0"
 dataclasses-json = "~=0.6"
 python-dotenv = "~=1.0"
 flask-cors = "~=5.0"
+sqlparse = "*"
 
 [dev-packages]
+pre-commit = "*"
 
 [requires]
 python_version = "3.10"
