@@ -35,6 +35,7 @@ class MsgExampleController(Resource):
         return response
 
     @example_ns.expect(example_request_model)
+    @example_ns.response(201, description="Created")
     def post(self):
         body = request.get_json(force=True, silent=True)
         query = MsgExamplePostRequest(**body)
