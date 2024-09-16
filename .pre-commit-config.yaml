@@ -17,9 +17,3 @@ repos:
     hooks:
       - id: black
         args: [ "--line-length=79" ]  # PEP 8 표준에 맞춘 라인 길이 설정
-
-  # import 문을 알파벳 순서로 정렬
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.10.1
-    hooks:
-      - id: isort
