@@ -1,2 +1,6 @@
 # msg-backend
-server 
+
+### How to start
+```bash
+$ bash setup.sh
+```
