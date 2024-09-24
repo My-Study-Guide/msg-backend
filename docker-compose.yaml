@@ -1,0 +1,23 @@
+services:
+  msg-backend:
+     image: hyezzang/msg-backend:v1.0
+     ports:
+      - "7070:7070"
+     env_file:
+       - .env
+     restart: always
+     networks:
+       - msg_backend
+  nginx:
+    image: nginx:1.27.0
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - msg-backend
+    networks:
+      - msg_backend
+networks:
+  msg_backend:
+    external: true
