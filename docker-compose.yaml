@@ -20,4 +20,4 @@ services:
       - msg_backend
 networks:
   msg_backend:
-    external: true
+    driver: bridge
