@@ -1,6 +1,10 @@
+import random
 from typing import List
 
-from msg_api.analyze.model.analyze import MsgAnalyzePostResponse
+# import requests
+# from bs4 import BeautifulSoup
+
+from msg_api.analyze.model.analyze import MsgAnalyzePostResponse, UrlInfo
 
 
 class MsgAnalyzeService:
@@ -8,4 +12,22 @@ class MsgAnalyzeService:
         pass
 
     def analyze_urls(self, topic: str, urls: List) -> MsgAnalyzePostResponse:
-        pass
+        results: List[UrlInfo] = []
+        for url in urls:
+            try:
+                # response = requests.get(url)
+                # soup = BeautifulSoup(response.text, 'html.parser')
+                # page_text = soup.get_text()
+                results.append(
+                    UrlInfo(
+                        url=url,
+                        status="success",
+                        score=round(random.uniform(0, 1), 2),
+                        summary="test",
+                    )
+                )
+            except Exception:
+                results.append(
+                    UrlInfo(url=url, status="fail", score=0, summary="test")
+                )
+        return MsgAnalyzePostResponse(results=results)
