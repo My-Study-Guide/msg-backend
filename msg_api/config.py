@@ -16,3 +16,4 @@ MYSQL_POOL_SIZE = load_env("MYSQL_POOL_SIZE", "10", as_type=int)
 MYSQL_CONNECTION_TIMEOUT = load_env(
     "MYSQL_CONNECTION_TIMEOUT", "20", as_type=int
 )
+MODEL_URL = load_env("MODEL_URL", required=True)
